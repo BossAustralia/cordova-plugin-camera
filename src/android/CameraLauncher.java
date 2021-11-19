@@ -129,6 +129,7 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
     private boolean correctOrientation;     // Should the pictures orientation be corrected
     private boolean orientationCorrected;   // Has the picture's orientation been corrected
     private boolean allowEdit;              // Should we allow the user to crop the image.
+    private int cameraDirection;
 
     protected final static String[] permissions = { Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE };
 
@@ -184,6 +185,7 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
             this.targetWidth = args.getInt(3);
             this.targetHeight = args.getInt(4);
             this.encodingType = args.getInt(5);
+            this.cameraDirection = args.getInt();
             this.mediaType = args.getInt(6);
             this.allowEdit = args.getBoolean(7);
             this.correctOrientation = args.getBoolean(8);
@@ -207,7 +209,7 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
 
             try {
                 if (this.srcType == CAMERA) {
-                    this.callTakePicture(destType, encodingType, args.getInt(11));
+                    this.callTakePicture(destType, encodingType, this.cameraDirection);
                 }
                 else if ((this.srcType == PHOTOLIBRARY) || (this.srcType == SAVEDPHOTOALBUM)) {
                     // FIXME: Stop always requesting the permission
@@ -1347,7 +1349,7 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
         }
         switch (requestCode) {
             case TAKE_PIC_SEC:
-                takePicture(this.destType, this.encodingType);
+                takePicture(this.destType, this.encodingType, this.cameraDirection);
                 break;
             case SAVE_TO_ALBUM_SEC:
                 this.getImage(this.srcType, this.destType, this.encodingType);

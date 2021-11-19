@@ -186,7 +186,6 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
             this.encodingType = args.getInt(5);
             this.mediaType = args.getInt(6);
             this.allowEdit = args.getBoolean(7);
-            this.cameraDirection = args.getInt(11);
             this.correctOrientation = args.getBoolean(8);
             this.saveToPhotoAlbum = args.getBoolean(9);
 
@@ -208,7 +207,7 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
 
             try {
                 if (this.srcType == CAMERA) {
-                    this.callTakePicture(destType, encodingType, this.cameraDirection);
+                    this.callTakePicture(destType, encodingType, args.getInt(11));
                 }
                 else if ((this.srcType == PHOTOLIBRARY) || (this.srcType == SAVEDPHOTOALBUM)) {
                     // FIXME: Stop always requesting the permission

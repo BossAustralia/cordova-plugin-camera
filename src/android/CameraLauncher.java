@@ -43,6 +43,7 @@ import android.provider.MediaStore;
 import androidx.core.content.FileProvider;
 import android.util.Base64;
 import android.widget.Toast;
+import android.hardware.camera2;
 
 import com.outsystems.imageeditor.view.ImageEditorActivity;
 

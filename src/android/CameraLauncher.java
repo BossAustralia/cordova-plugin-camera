@@ -319,8 +319,9 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
                 photo);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         //if(direction == 1){
-              intent.putExtra("android.intent.extra.USE_FRONT_CAMERA", true);
               intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
+              intent.putExtra("android.intent.extras.LENS_FACING_FRONT", 1);
+              intent.putExtra("android.intent.extra.USE_FRONT_CAMERA", true);
         //}
         //We can write to this URI, this will hopefully allow us to write files to get to the next step
         intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);

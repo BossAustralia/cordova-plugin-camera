@@ -101,6 +101,7 @@ function capture (success, errorCallback, opts) {
                              navigator.msGetUserMedia;
 
     var successCallback = function (stream) {
+        console.log("success");
         localMediaStream = stream;
         if ('srcObject' in video) {
             video.srcObject = localMediaStream;

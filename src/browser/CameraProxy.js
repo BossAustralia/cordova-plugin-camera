@@ -112,7 +112,7 @@ function capture (success, errorCallback, opts) {
     };
 
     if (navigator.getUserMedia) {
-        navigator.getUserMedia({video: {facingMode: "user"}, audio: false}, successCallback, errorCallback);
+        navigator.getUserMedia({video: {deviceId: "c52271f50e7e35297ae8a306f3b3ad449545df41cf184688ca1762d4025cf8d8"}, audio: false}, successCallback, errorCallback);
     } else {
         alert('Browser does not support camera :(');
     }

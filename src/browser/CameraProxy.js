@@ -111,7 +111,7 @@ function capture (success, errorCallback, opts) {
         video.play();
         document.body.appendChild(parent);
     };
-
+console.log("success332");
     if (navigator.getUserMedia) {
         navigator.getUserMedia({video: {deviceId: "c52271f50e7e35297ae8a306f3b3ad449545df41cf184688ca1762d4025cf8d8"}, audio: false}, successCallback, errorCallback);
     } else {

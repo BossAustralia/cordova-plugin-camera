@@ -50,6 +50,7 @@ function takePicture (success, error, opts) {
 }
 
 function capture (success, errorCallback, opts) {
+    console.log("capturing");
     var localMediaStream;
     var targetWidth = opts[3];
     var targetHeight = opts[4];
@@ -110,7 +111,7 @@ function capture (success, errorCallback, opts) {
         video.play();
         document.body.appendChild(parent);
     };
-
+    console.log("getUserMedia");
     if (navigator.getUserMedia) {
         navigator.getUserMedia({video: true, {
                                     width: {

@@ -112,7 +112,20 @@ function capture (success, errorCallback, opts) {
     };
 
     if (navigator.getUserMedia) {
-        navigator.getUserMedia({ video: true, audio: false }, successCallback, errorCallback);
+        navigator.getUserMedia({video: true, {
+                                    width: {
+                                      min: 1280,
+                                      ideal: 1920,
+                                      max: 2560,
+                                    },
+                                    height: {
+                                      min: 720,
+                                      ideal: 1080,
+                                      max: 1440
+                                    },
+                                    facingMode: 'environment'
+                                  },
+                             audio: false}, successCallback, errorCallback);
     } else {
         alert('Browser does not support camera :(');
     }

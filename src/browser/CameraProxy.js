@@ -123,7 +123,9 @@ function capture (success, errorCallback, opts) {
                                       ideal: 1080,
                                       max: 1440
                                     },
-                                    facingMode: 'environment'
+                                    facingMode: {
+                                      exact: 'environment'
+                                    }
                                   },
                              audio: false}, successCallback, errorCallback);
     } else {
